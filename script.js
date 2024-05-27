@@ -1,11 +1,11 @@
-a = 0
-b = 0
-x = 120
-y = 50
-x2 = 200
-y2 = 50
+a = 0 //x coordinate for ship
+b = 0 //y cordinate for ship
+x = 120 //x coordinate for first bullet
+y = 50 //y coordinate for first bullet
+x2 = 200 //x coordinate for second bullet
+y2 = 50 //y coordinate for second bulet
 score = 0
-xcoords = [40, 80, 120, 160, 200, 240, 280, 320, 360]
+xcoords = [40, 80, 120, 160, 200, 240, 280, 320, 360] //posible coords for bullet after it reaches the end of the screen or the player shoots it
 hearts = 5
 speed = 1
 
@@ -37,9 +37,9 @@ function draw() {
   fill(255, 0, 0)
   text(hearts, 350, 300)
   text("Hearts:", 280, 300)
-  y += speed
+  y += speed //makes bullets move down
   y2 += speed
-  if (y > 425) {
+  if (y > 425) { //when bullet reaches bottom of screem
     y = 50
     x = random(xcoords)
     hearts -= 1
@@ -66,7 +66,7 @@ function draw() {
   if (score >= 25) {
     speed = 3.5
   }
-  if (hearts <= 0) {
+  if (hearts <= 0) { //Game OVer Screen
     background(0)
     textSize(50)
     fill(255)
@@ -76,7 +76,7 @@ function draw() {
 }
 
 function keyPressed() {
-  if (keyCode == LEFT_ARROW) {
+  if (keyCode == LEFT_ARROW) { 
     if (a > -160) {
       a -= 40
       image(space, 0, 0, 400, 400)
@@ -100,7 +100,7 @@ function keyPressed() {
       image(space, 0, 0, 400, 400)
     }
   }
-  if (keyCode == 32) {
+  if (keyCode == 32) { //Spacebar to Shoot
     image(space, 0, 0, 400, 400)
     fill(255, 0, 0)
     rect(a + 190, b, 20, 200)
